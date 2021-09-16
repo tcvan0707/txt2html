@@ -19,6 +19,11 @@ const argv = yargs(process.argv.slice(2))
             alias: "i",
             demandOption: true,
         },
+        output: {
+            description: "Path to folder with generated files",
+            alias: "o",
+            default: "dist",
+        },
     }).argv;
 
 async function txt2html(filePath) {
@@ -27,7 +32,7 @@ async function txt2html(filePath) {
         const text = (await fs.readFile(filePath)).toString();
         const html = generateFromText(text);
         const htmlFile = path.basename(filePath, path.extname(filePath)) + ".html";
-        const htmlPath = path.join("./dist", htmlFile);
+        const htmlPath = path.join(argv.output, htmlFile);
         await fs.writeFile(htmlPath, html);
     } else {
         throw new Error("Incorrect path");
@@ -35,7 +40,7 @@ async function txt2html(filePath) {
 }
 
 async function main() {
-    const distDir = "./dist";
+    const distDir = argv.output;
     try {
         const distStat = await fs.stat(distDir);
         if (distStat.isDirectory()) {
@@ -45,7 +50,11 @@ async function main() {
     } catch {
         console.log(`${distDir} does not exist, creating it`);
     }
-    await fs.mkdir(distDir);
+    try {
+        await fs.mkdir(distDir);
+    } catch {
+        throw new Error(`Couldn't create ${distDir}, exiting`);
+    }
 
     const inputPath = argv.input;
     try {
