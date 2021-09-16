@@ -11,7 +11,7 @@ function insertInTemplate(tags, cssHref) {
   <meta charset="utf-8">
   <title>Filename</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  ${cssUrl !== undefined ? `<link rel="stylesheet" href="${cssHref}">` : ""}
+  ${cssHref !== undefined ? `<link rel="stylesheet" href="${cssHref}">` : ""}
 </head>
 <body>
 ${tags}
