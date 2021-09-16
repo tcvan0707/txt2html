@@ -1,15 +1,15 @@
-export function generateFromText(text, cssHref) {
+export function generateFromText(text, filename, cssHref) {
     let tags = splitInParagraphs(text);
-    return insertInTemplate(tags, cssHref);
+    return insertInTemplate(tags, filename, cssHref);
 }
 
-function insertInTemplate(tags, cssHref) {
+function insertInTemplate(tags, filename, cssHref) {
     return `
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Filename</title>
+  <title>${filename}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   ${cssHref !== undefined ? `<link rel="stylesheet" href="${cssHref}">` : ""}
 </head>

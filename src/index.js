@@ -34,9 +34,9 @@ async function txt2html(filePath) {
     const fileStat = await fs.stat(filePath);
     if (fileStat.isFile() && path.extname(filePath) == ".txt") {
         const text = (await fs.readFile(filePath)).toString();
-        const html = generateFromText(text, argv.stylesheet);
-        const htmlFile = path.basename(filePath, path.extname(filePath)) + ".html";
-        const htmlPath = path.join(argv.output, htmlFile);
+        const fileName = path.basename(filePath, path.extname(filePath));
+        const htmlPath = path.join(argv.output, fileName + ".html");
+        const html = generateFromText(text, fileName, argv.stylesheet);
         await fs.writeFile(htmlPath, html);
     } else {
         throw new Error("Incorrect path");
