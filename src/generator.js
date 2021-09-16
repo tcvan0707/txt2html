@@ -1,9 +1,9 @@
-export function generateFromText(text) {
+export function generateFromText(text, cssHref) {
     let tags = splitInParagraphs(text);
-    return insertInTemplate(tags);
+    return insertInTemplate(tags, cssHref);
 }
 
-function insertInTemplate(tags) {
+function insertInTemplate(tags, cssHref) {
     return `
 <!doctype html>
 <html lang="en">
@@ -11,6 +11,7 @@ function insertInTemplate(tags) {
   <meta charset="utf-8">
   <title>Filename</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  ${cssUrl !== undefined ? `<link rel="stylesheet" href="${cssHref}">` : ""}
 </head>
 <body>
 ${tags}

@@ -24,13 +24,17 @@ const argv = yargs(process.argv.slice(2))
             alias: "o",
             default: "dist",
         },
+        stylesheet: {
+            description: "Adds custom CSS to generated html",
+            alias: "s",
+        },
     }).argv;
 
 async function txt2html(filePath) {
     const fileStat = await fs.stat(filePath);
     if (fileStat.isFile() && path.extname(filePath) == ".txt") {
         const text = (await fs.readFile(filePath)).toString();
-        const html = generateFromText(text);
+        const html = generateFromText(text, argv.stylesheet);
         const htmlFile = path.basename(filePath, path.extname(filePath)) + ".html";
         const htmlPath = path.join(argv.output, htmlFile);
         await fs.writeFile(htmlPath, html);
