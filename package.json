@@ -1,0 +1,32 @@
+{
+  "name": "txt2html",
+  "version": "1.0.0",
+  "description": "Static Site Generator that converts .txt to .html",
+  "type": "module",
+  "exports": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tcvan0707/txt2html.git"
+  },
+  "author": "Thanh Van <tvan772001@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tcvan0707/txt2html/issues"
+  },
+  "homepage": "https://github.com/tcvan0707/txt2html#readme",
+  "dependencies": {
+    "yargs": "^17.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^16.9.1",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.4.1",
+    "typescript": "^4.4.3"
+  }
+}
