@@ -6,7 +6,7 @@ Static Site Generator that converts .txt to .html
 * Custom output directory
 
 ## Example
-Input file `hello.txt` containing
+Running `npm start -- -i hello.txt` containing
 ```
 Hello world!
 
@@ -32,7 +32,7 @@ will generate output file `dist/hello.html` containing
 
 ## Usage
 ```
-Usage: index.js [options]
+Usage: txt2html.js [options]
 
 Options:
   -h, --help        Show help message                                  [boolean]

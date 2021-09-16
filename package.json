@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "Static Site Generator that converts .txt to .html",
   "type": "module",
-  "exports": "src/index.js",
+  "exports": "src/txt2html.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/index.js"
+    "start": "node src/txt2html.js"
   },
   "repository": {
     "type": "git",
