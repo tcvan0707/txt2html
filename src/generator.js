@@ -22,7 +22,7 @@ ${tags}
 
 function splitInParagraphs(text) {
     return text
-        .split(/\n{2,}/)
+        .split(/[\r\n]{2,}/)
         .filter((p) => p !== "")
         .map((p) => `<p>${p.trim()}</p>`)
         .join("\n");
