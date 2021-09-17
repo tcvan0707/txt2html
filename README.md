@@ -1,12 +1,23 @@
 # txt2html
+
 Static Site Generator that converts .txt to .html
 
 ## Features
-* Support for custom stylesheets
-* Custom output directory
+
+-   Support for custom stylesheets
+-   Custom output directory
+
+## Installation
+
+To run this script you need to:
+
+1. `git clone https://github.com/tcvan0707/txt2html.git && cd txt2html`
+2. `npm install`
 
 ## Example
+
 Running `npm start -- -i hello.txt` containing
+
 ```
 Hello world!
 
@@ -14,6 +25,7 @@ This world is beautiful
 ```
 
 will generate output file `dist/hello.html` containing
+
 ```
 <!doctype html>
 <html lang="en">
@@ -31,6 +43,7 @@ will generate output file `dist/hello.html` containing
 ```
 
 ## Usage
+
 ```
 Usage: txt2html.js [options]
 
