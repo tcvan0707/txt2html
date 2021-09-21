@@ -19,7 +19,9 @@
   },
   "homepage": "https://github.com/tcvan0707/txt2html#readme",
   "dependencies": {
+    "fs": "0.0.1-security",
     "fs.promises": "^0.1.2",
+    "node": "^16.9.1",
     "yargs": "^17.1.1"
   },
   "devDependencies": {
