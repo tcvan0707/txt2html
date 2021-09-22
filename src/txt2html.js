@@ -43,7 +43,7 @@ async function txt2html(filePath) {
             const text = (await fs.readFile(filePath)).toString();
             const fileName = path.basename(filePath, path.extname(filePath));
             const htmlPath = path.join(argv.output, fileName + ".html");
-            const html = generateFromMd(text, fileName, argv.stylesheet);
+            const html = generateFromMd(mark(text), fileName, argv.stylesheet);
             await fs.writeFile(htmlPath, html);
         }else{
             throw new Error("Incorrect path");
