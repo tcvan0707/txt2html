@@ -1,7 +1,8 @@
 import fs from "fs/promises";
 import path from "path";
 import yargs from "yargs";
-import { generateFromText } from "./generator.js";
+
+import {generateFromText, generateFromMd} from "./generator.js";
 
 const argv = yargs(process.argv.slice(2))
     .usage("Usage: $0 [options]")
@@ -32,14 +33,20 @@ const argv = yargs(process.argv.slice(2))
 
 async function txt2html(filePath) {
     const fileStat = await fs.stat(filePath);
-    if (fileStat.isFile() && path.extname(filePath) == ".txt") {
+    if (fileStat.isFile() && path.extname(filePath) == ".txt"){
         const text = (await fs.readFile(filePath)).toString();
         const fileName = path.basename(filePath, path.extname(filePath));
         const htmlPath = path.join(argv.output, fileName + ".html");
         const html = generateFromText(text, fileName, argv.stylesheet);
         await fs.writeFile(htmlPath, html);
-    } else {
-        throw new Error("Incorrect path");
+    } else if (fileStat.isFile() && path.extname(filePath) == ".md") {
+            const text = (await fs.readFile(filePath)).toString();
+            const fileName = path.basename(filePath, path.extname(filePath));
+            const htmlPath = path.join(argv.output, fileName + ".html");
+            const html = generateFromMd(text, fileName, argv.stylesheet);
+            await fs.writeFile(htmlPath, html);
+        }else{
+            throw new Error("Incorrect path");
     }
 }
 
