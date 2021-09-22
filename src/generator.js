@@ -3,7 +3,7 @@ export function generateFromText(text, filename, cssHref) {
     return insertInTemplate(tags, filename, cssHref);
 }
 
-function insertInTemplate(tags, filename, cssHref) {
+export function insertInTemplate(tags, filename, cssHref) {
     return `
 <!doctype html>
 <html lang="en">

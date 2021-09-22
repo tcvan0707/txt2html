@@ -8,7 +8,7 @@
   
 </head>
 <body>
-<p><h1 id="txt2html">txt2html</h1>
+<h1 id="txt2html">txt2html</h1>
 <p>Static Site Generator that converts .txt to .html</p>
 <h2 id="features">Features</h2>
 <ul>
@@ -23,8 +23,9 @@
 </ol>
 <h2 id="example">Example</h2>
 <p>Running <code>npm start -- -i hello.txt</code> containing</p>
-<pre><code>Hello world!</p>
-<p>This world is beautiful
+<pre><code>Hello world!
+
+This world is beautiful
 </code></pre>
 <p>will generate output file <code>dist/hello.html</code> containing</p>
 <pre><code>&lt;!doctype html&gt;
@@ -32,8 +33,9 @@
 &lt;head&gt;
   &lt;meta charset=&quot;utf-8&quot;&gt;
   &lt;title&gt;hello&lt;/title&gt;
-  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;</p>
-<p>&lt;/head&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+
+&lt;/head&gt;
 &lt;body&gt;
 &lt;p&gt;Hello world!&lt;/p&gt;
 &lt;p&gt;This world is beautiful&lt;/p&gt;
@@ -41,13 +43,15 @@
 &lt;/html&gt;
 </code></pre>
 <h2 id="usage">Usage</h2>
-<pre><code>Usage: txt2html.js [options]</p>
-<p>Options:
+<pre><code>Usage: txt2html.js [options]
+
+Options:
   -h, --help        Show help message                                  [boolean]
   -v, --version     Show current version                               [boolean]
   -i, --input       Input txt file / directory with txt files         [required]
   -o, --output      Path to folder with generated files        [default: &quot;dist&quot;]
   -s, --stylesheet  Adds custom CSS to generated html
-</code></pre></p>
+</code></pre>
+
 </body>
 </html>

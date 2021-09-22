@@ -2,7 +2,7 @@ import fs from "fs/promises";
 import path from "path";
 import yargs from "yargs";
 import marked from "marked";
-import {generateFromText} from "./generator.js";
+import {generateFromText, insertInTemplate} from "./generator.js";
 
 const argv = yargs(process.argv.slice(2))
     .usage("Usage: $0 [options]")
@@ -43,7 +43,7 @@ async function txt2html(filePath) {
             const text = (await fs.readFile(filePath)).toString();
             const fileName = path.basename(filePath, path.extname(filePath));
             const htmlPath = path.join(argv.output, fileName + ".html");
-            const html = generateFromText(marked(text), fileName, argv.stylesheet);
+            const html = insertInTemplate(marked(text), fileName, argv.stylesheet);
             await fs.writeFile(htmlPath, html);
         }else{
             throw new Error("Incorrect path");
