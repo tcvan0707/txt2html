@@ -1,9 +1,11 @@
+import marked from "marked";
 export function generateFromText(text, filename, cssHref) {
     let tags = splitInParagraphs(text);
     return insertInTemplate(tags, filename, cssHref);
 }
 
 export function generateFromMd(text, filename, cssHref){
+    text = marked(text);
     let tags = boldText(text);
     return insertInTemplate(tags, filename, cssHref);
 }
