@@ -3,7 +3,12 @@ export function generateFromText(text, filename, cssHref) {
     return insertInTemplate(tags, filename, cssHref);
 }
 
-export function insertInTemplate(tags, filename, cssHref) {
+export function generateFromMd(text, filename, cssHref){
+    let tags = boldText(text);
+    return insertInTemplate(tags, filename, cssHref);
+}
+
+function insertInTemplate(tags, filename, cssHref) {
     return `
 <!doctype html>
 <html lang="en">
@@ -28,3 +33,8 @@ function splitInParagraphs(text) {
         .map((paragraph) => `<p>${paragraph}</p>`)
         .join("\n");
 }
+
+function boldText(text){
+    return text.replace(/^# (.*$)/gim, '<h1>$1</h1>');
+}
+
