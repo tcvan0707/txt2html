@@ -1,11 +1,12 @@
 # txt2html
 
-Static Site Generator that converts .txt to .html
+Static Site Generator that converts .txt and .md to .html
 
 ## Features
 
 -   Support for custom stylesheets
 -   Custom output directory
+-   Support converting .md to .html
 
 ## Installation
 
