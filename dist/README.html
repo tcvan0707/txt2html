@@ -8,50 +8,63 @@
   
 </head>
 <body>
-<h1 id="txt2html">txt2html</h1>
-<p>Static Site Generator that converts .txt to .html</p>
-<h2 id="features">Features</h2>
-<ul>
-<li>Support for custom stylesheets</li>
-<li>Custom output directory</li>
-</ul>
-<h2 id="installation">Installation</h2>
-<p>To run this script you need to:</p>
-<ol>
-<li><code>git clone https://github.com/tcvan0707/txt2html.git &amp;&amp; cd txt2html</code></li>
-<li><code>npm install</code></li>
-</ol>
-<h2 id="example">Example</h2>
-<p>Running <code>npm start -- -i hello.txt</code> containing</p>
-<pre><code>Hello world!
+<h1>txt2html</h1>
+
+Static Site Generator that converts .txt and .md to .html
+
+## Features
+
+-   Support for custom stylesheets
+-   Custom output directory
+-   Support converting .md to .html
+
+## Installation
+
+To run this script you need to:
+
+1. `git clone https://github.com/tcvan0707/txt2html.git && cd txt2html`
+2. `npm install`
+
+## Example
+
+Running `npm start -- -i hello.txt` containing
+
+```
+Hello world!
 
 This world is beautiful
-</code></pre>
-<p>will generate output file <code>dist/hello.html</code> containing</p>
-<pre><code>&lt;!doctype html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-  &lt;meta charset=&quot;utf-8&quot;&gt;
-  &lt;title&gt;hello&lt;/title&gt;
-  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+```
 
-&lt;/head&gt;
-&lt;body&gt;
-&lt;p&gt;Hello world!&lt;/p&gt;
-&lt;p&gt;This world is beautiful&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<h2 id="usage">Usage</h2>
-<pre><code>Usage: txt2html.js [options]
+will generate output file `dist/hello.html` containing
+
+```
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>hello</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+<p>Hello world!</p>
+<p>This world is beautiful</p>
+</body>
+</html>
+```
+
+## Usage
+
+```
+Usage: txt2html.js [options]
 
 Options:
   -h, --help        Show help message                                  [boolean]
   -v, --version     Show current version                               [boolean]
   -i, --input       Input txt file / directory with txt files         [required]
-  -o, --output      Path to folder with generated files        [default: &quot;dist&quot;]
+  -o, --output      Path to folder with generated files        [default: "dist"]
   -s, --stylesheet  Adds custom CSS to generated html
-</code></pre>
+```
 
 </body>
 </html>
