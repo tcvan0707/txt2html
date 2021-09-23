@@ -1,12 +1,10 @@
-import marked from "marked";
 export function generateFromText(text, filename, cssHref) {
     let tags = splitInParagraphs(text);
     return insertInTemplate(tags, filename, cssHref);
 }
 
 export function generateFromMd(text, filename, cssHref){
-    text = marked(text);
-    let tags = boldText(text);
+    let tags = convertToH1(text);
     return insertInTemplate(tags, filename, cssHref);
 }
 
@@ -36,7 +34,7 @@ function splitInParagraphs(text) {
         .join("\n");
 }
 
-function boldText(text){
+function convertToH1(text){
     return text.replace(/^# (.*$)/gim, '<h1>$1</h1>');
 }
 
