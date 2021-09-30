@@ -3,7 +3,7 @@ export function generateFromText(text, filename, cssHref) {
     return insertInTemplate(tags, filename, cssHref);
 }
 
-export function generateFromMd(text, filename, cssHref){
+export function generateFromMd(text, filename, cssHref) {
     let tags = convertToH1(text);
     return insertInTemplate(tags, filename, cssHref);
 }
@@ -26,15 +26,16 @@ ${tags}
 }
 
 function splitInParagraphs(text) {
-    return text
+    text = text
         .split(/(\r?\n){2,}/)
         .map((line) => line.trim())
         .filter((line) => line !== "")
         .map((paragraph) => `<p>${paragraph}</p>`)
-        .join("\n");
+        .join("\n")
+        .replace(/\`([^`].*)\`/gim, "<code>$1</code>");
+    return text;
 }
 
-function convertToH1(text){
-    return text.replace(/^# (.*$)/gim, '<h1>$1</h1>');
+function convertToH1(text) {
+    return text.replace(/^# (.*$)/gim, "<h1>$1</h1>");
 }
-
