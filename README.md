@@ -7,6 +7,8 @@ Static Site Generator that converts .txt and .md to .html
 -   Support for custom stylesheets
 -   Custom output directory
 -   Support converting .md to .html
+-   Support converting `---` to `<hr>` tag
+-   Support converting `backtick` to `<code>..text..</code>`
 
 ## Installation
 
