@@ -9,6 +9,7 @@ Static Site Generator that converts .txt and .md to .html
 -   Support converting .md to .html
 -   Support converting `---` to `<hr>` tag
 -   Support converting `backtick` to `<code>..text..</code>`
+-   Support's custom JSON configuration file
 
 ## Installation
 
@@ -45,6 +46,18 @@ will generate output file `dist/hello.html` containing
 </html>
 ```
 
+Running `npm start -- -c config.json` containing
+
+```
+{
+    "input": "test/The-Red-Headed-League.txt",
+    "output": "dist",
+    "stylesheet": ""
+}
+```
+
+will run the arguments inside the JSON file. 
+
 ## Usage
 
 ```
@@ -56,4 +69,5 @@ Options:
   -i, --input       Input txt file / directory with txt files         [required]
   -o, --output      Path to folder with generated files        [default: "dist"]
   -s, --stylesheet  Adds custom CSS to generated html
+  -c, --config      Allows custom JSON for inputs
 ```
