@@ -4,7 +4,7 @@ export function generateFromText(text, filename, cssHref) {
 }
 
 export function generateFromMd(text, filename, cssHref) {
-    let tags = convertToH1(text);
+    let tags = convertHeading1(text);
     return insertInTemplate(tags, filename, cssHref);
 }
 
@@ -37,6 +37,6 @@ function splitInParagraphs(text) {
     return text;
 }
 
-function convertToH1(text) {
+function convertHeading1(text) {
     return text.replace(/^# (.*$)/gim, "<h1>$1</h1>");
 }
