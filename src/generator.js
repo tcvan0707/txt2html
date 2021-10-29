@@ -1,3 +1,5 @@
+import { markdown } from "markdown-it";
+
 export function generateFromText(text, filename, cssHref) {
     let tags = splitInParagraphs(text);
     return insertInTemplate(tags, filename, cssHref);
@@ -38,5 +40,6 @@ function splitInParagraphs(text) {
 }
 
 function convertHeading1(text) {
-    return text.replace(/^# (.*$)/gim, "<h1>$1</h1>");
+    var text = markdown.render(text);
+    return text;
 }
