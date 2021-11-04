@@ -34,12 +34,11 @@ function splitInParagraphs(text) {
         .filter((line) => line !== "")
         .map((paragraph) => `<p>${paragraph}</p>`)
         .join("\n")
-        .replace(/\`([^`].*)\`/gim, "<code>$1</code>")
+        .replace(/`([^`].*)`/gim, "<code>$1</code>")
         .replace(/-{3,}/gim, "<hr>");
     return text;
 }
 
 function convertHeading1(text) {
-    var text = markdown.render(text);
-    return text;
+    return (text = markdown.render(text));
 }
