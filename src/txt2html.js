@@ -72,6 +72,7 @@ async function txt2html(filePath) {
 }
 
 async function main() {
+    const config = argv.options.config;
     const distDir = config.output ? config.output : argv.output;
     console.log(distDir);
     try {
