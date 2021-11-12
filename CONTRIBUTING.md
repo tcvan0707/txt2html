@@ -18,6 +18,11 @@ yarn
 
 `npm run eslint`
 
+## Jest - Testing script
+
+In order to test the project, do the following:
+`npm run test`
+
 ## Example
 
 Running `npm start -- -i hello.txt` containing

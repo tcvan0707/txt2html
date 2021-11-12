@@ -1,9 +1,8 @@
-import fileSystem from "fs";
-import fs from "fs/promises";
-import path from "path";
-import yargs from "yargs";
-
-import { generateFromText, generateFromMd } from "./generator.js";
+const fileSystem = require("fs");
+const fs = require("fs").promises;
+const path = require("path");
+const yargs = require("yargs");
+const { generateFromText, generateFromMd } = require("./generator");
 
 const argv = yargs(process.argv.slice(2))
     .usage("Usage: $0 [options]")
@@ -108,3 +107,4 @@ async function main() {
 }
 
 main().catch((err) => console.log(err));
+module.exports.txt2html = txt2html;

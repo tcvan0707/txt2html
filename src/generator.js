@@ -1,11 +1,11 @@
-import { markdown } from "markdown-it";
+var md = require("markdown-it")();
 
-export function generateFromText(text, filename, cssHref) {
+function generateFromText(text, filename, cssHref) {
     let tags = splitInParagraphs(text);
     return insertInTemplate(tags, filename, cssHref);
 }
 
-export function generateFromMd(text, filename, cssHref) {
+function generateFromMd(text, filename, cssHref) {
     let tags = convertHeading1(text);
     return insertInTemplate(tags, filename, cssHref);
 }
@@ -40,5 +40,8 @@ function splitInParagraphs(text) {
 }
 
 function convertHeading1(text) {
-    return (text = markdown.render(text));
+    return (text = md.render(text));
 }
+
+module.exports.generateFromText = generateFromText;
+module.exports.generateFromMd = generateFromMd;
