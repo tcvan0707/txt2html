@@ -2,10 +2,10 @@
     "name": "txt2html",
     "version": "1.0.0",
     "description": "Static Site Generator that converts .txt to .html",
-    "type": "module",
-    "exports": "src/txt2html.js",
+    "main": "./src/txt2html.js",
+    "bin": "./src/txt2html.js",
     "scripts": {
-        "test": "jest",
+        "test": "jest --verbose",
         "start": "node src/txt2html.js",
         "prettier": "prettier --write .",
         "prettier-check": "prettier --check .",
@@ -23,21 +23,19 @@
     },
     "homepage": "https://github.com/tcvan0707/txt2html#readme",
     "dependencies": {
+        "execa": "^6.0.0",
         "fs": "0.0.1-security",
         "fs.promises": "^0.1.2",
         "markdown": "^0.5.0",
         "markdown-it": "^12.2.0",
         "marked": "^3.0.4",
-        "node": "^16.9.1",
         "yargs": "^17.1.1"
     },
     "devDependencies": {
-        "@types/node": "^16.9.1",
         "eslint": "^7.32.0",
         "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-prettier": "^4.0.0",
         "jest": "^27.3.1",
-        "prettier": "2.4.1",
-        "typescript": "^4.4.3"
+        "prettier": "2.4.1"
     }
 }
