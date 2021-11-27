@@ -1,5 +1,5 @@
 {
-    "input": "test/The-Red-Headed-League.txt",
+    "input": "./static/",
     "output": "dist",
     "stylesheet": ""
 }

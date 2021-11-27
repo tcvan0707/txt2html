@@ -34,35 +34,36 @@ const argv = yargs(process.argv.slice(2))
         },
     }).argv;
 
+let data = argv.config ? fileSystem.readFileSync(argv.config) : 0;
+const config = JSON.parse(data);
+
 async function txt2html(filePath) {
     const fileStat = await fs.stat(filePath);
-    let data = argv.config ? fileSystem.readFileSync(argv.config) : null;
-    const configData = JSON.parse(data) || null;
 
     if (fileStat.isFile() && path.extname(filePath) == ".txt") {
         const text = (await fs.readFile(filePath)).toString();
         const fileName = path.basename(filePath, path.extname(filePath));
         const htmlPath = path.join(
-            configData ? configData.output : argv.output,
+            config ? config.output : argv.output,
             fileName + ".html"
         );
         const html = generateFromText(
             text,
             fileName,
-            configData ? configData.stylesheet : argv.stylesheet
+            config ? config.stylesheet : argv.stylesheet
         );
         await fs.writeFile(htmlPath, html);
     } else if (fileStat.isFile() && path.extname(filePath) == ".md") {
         const text = (await fs.readFile(filePath)).toString();
         const fileName = path.basename(filePath, path.extname(filePath));
         const htmlPath = path.join(
-            configData ? configData.output : argv.output,
+            config ? config.output : argv.output,
             fileName + ".html"
         );
         const html = generateFromMd(
             text,
             fileName,
-            configData ? configData.stylesheet : argv.stylesheet
+            config ? config.stylesheet : argv.stylesheet
         );
         await fs.writeFile(htmlPath, html);
     } else {
@@ -71,7 +72,6 @@ async function txt2html(filePath) {
 }
 
 async function main() {
-    const config = JSON.parse(data) || null;
     const distDir = config.output ? config.output : argv.output;
     console.log(distDir);
     try {

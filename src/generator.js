@@ -40,7 +40,7 @@ function splitInParagraphs(text) {
 }
 
 function convertHeading1(text) {
-    return (text = md.render(text));
+    return md.render(text);
 }
 
 module.exports.generateFromText = generateFromText;
