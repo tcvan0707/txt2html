@@ -1,5 +1,5 @@
 {
-    "name": "txt2html",
+    "name": "txt2html_version2",
     "version": "1.0.0",
     "description": "Static Site Generator that converts .txt to .html",
     "main": "./src/txt2html.js",
